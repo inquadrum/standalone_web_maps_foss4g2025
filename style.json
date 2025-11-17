@@ -1,7 +1,7 @@
 {
   "version": 8,
   "name": "style@4.3.0 theme@light lang@en",
-  "metadata": {"maputnik:renderer": "mlgljs"},
+  "metadata": { "maputnik:renderer": "mlgljs" },
   "sources": {
     "te-ara-hura": {
       "type": "geojson",
@@ -11,6 +11,12 @@
       "type": "vector",
       "url": "pmtiles://sources/waiheke_island.pmtiles",
       "attribution": "© <a href=\"https://openstreetmap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap</a>"
+    },
+    "terrain": {
+      "type": "raster-dem",
+      "url": "pmtiles://sources/waiheke_island_terrain.pmtiles",
+      "tileSize": 256,
+      "encoding": "terrarium"
     }
   },
   "sprite": "https://inquadrum.github.io/standalone_web_maps_foss4g2025/lib/sprite/light",
@@ -19,7 +25,7 @@
     {
       "id": "background",
       "type": "background",
-      "paint": {"background-color": "#cccccc"}
+      "paint": { "background-color": "#cccccc" }
     },
     {
       "id": "earth",
@@ -27,7 +33,19 @@
       "source": "protomaps",
       "source-layer": "earth",
       "filter": ["==", "$type", "Polygon"],
-      "paint": {"fill-color": "#e2dfda"}
+      "paint": { "fill-color": "#e2dfda" }
+    },
+    {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "terrain",
+      "paint": {
+        "hillshade-accent-color": "hsla(0, 0%, 0%, 0.1)",
+        "hillshade-exaggeration": 0.5,
+        "hillshade-highlight-color": "hsla(0, 0%, 100%, 0.1)",
+        "hillshade-illumination-direction": 315,
+        "hillshade-shadow-color": "hsla(0, 0%, 0%, 0.5)"
+      }
     },
     {
       "id": "landcover",
@@ -129,7 +147,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["in", "kind", "allotments", "village_green", "playground"],
-      "paint": {"fill-color": "#9cd3b4", "fill-opacity": 0.7}
+      "paint": { "fill-color": "#9cd3b4", "fill-opacity": 0.7 }
     },
     {
       "id": "landuse_hospital",
@@ -137,7 +155,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["==", "kind", "hospital"],
-      "paint": {"fill-color": "#e4dad9"}
+      "paint": { "fill-color": "#e4dad9" }
     },
     {
       "id": "landuse_industrial",
@@ -145,7 +163,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["==", "kind", "industrial"],
-      "paint": {"fill-color": "#d1dde1"}
+      "paint": { "fill-color": "#d1dde1" }
     },
     {
       "id": "landuse_school",
@@ -153,7 +171,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["in", "kind", "school", "university", "college"],
-      "paint": {"fill-color": "#e4ded7"}
+      "paint": { "fill-color": "#e4ded7" }
     },
     {
       "id": "landuse_beach",
@@ -161,7 +179,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["in", "kind", "beach"],
-      "paint": {"fill-color": "#e8e4d0"}
+      "paint": { "fill-color": "#e8e4d0" }
     },
     {
       "id": "landuse_zoo",
@@ -169,7 +187,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["in", "kind", "zoo"],
-      "paint": {"fill-color": "#c6dcdc"}
+      "paint": { "fill-color": "#c6dcdc" }
     },
     {
       "id": "landuse_aerodrome",
@@ -177,7 +195,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["in", "kind", "aerodrome"],
-      "paint": {"fill-color": "#dadbdf"}
+      "paint": { "fill-color": "#dadbdf" }
     },
     {
       "id": "roads_runway",
@@ -228,7 +246,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["any", ["in", "kind", "runway", "taxiway"]],
-      "paint": {"fill-color": "#e9e9ed"}
+      "paint": { "fill-color": "#e9e9ed" }
     },
     {
       "id": "water",
@@ -236,7 +254,7 @@
       "source": "protomaps",
       "source-layer": "water",
       "filter": ["==", "$type", "Polygon"],
-      "paint": {"fill-color": "#80deea"}
+      "paint": { "fill-color": "#80deea" }
     },
     {
       "id": "water_stream",
@@ -245,7 +263,7 @@
       "source-layer": "water",
       "minzoom": 14,
       "filter": ["in", "kind", "stream"],
-      "paint": {"line-color": "#80deea", "line-width": 0.5}
+      "paint": { "line-color": "#80deea", "line-width": 0.5 }
     },
     {
       "id": "water_river",
@@ -275,7 +293,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["==", "kind", "pedestrian"],
-      "paint": {"fill-color": "#e3e0d4"}
+      "paint": { "fill-color": "#e3e0d4" }
     },
     {
       "id": "landuse_pier",
@@ -283,7 +301,7 @@
       "source": "protomaps",
       "source-layer": "landuse",
       "filter": ["==", "kind", "pier"],
-      "paint": {"fill-color": "#e0e0e0"}
+      "paint": { "fill-color": "#e0e0e0" }
     },
     {
       "id": "roads_tunnels_other_casing",
@@ -565,7 +583,7 @@
       "type": "fill",
       "source": "protomaps",
       "source-layer": "buildings",
-      "paint": {"fill-color": "#cccccc", "fill-opacity": 0.5}
+      "paint": { "fill-color": "#cccccc", "fill-opacity": 0.5 }
     },
     {
       "id": "roads_pier",
